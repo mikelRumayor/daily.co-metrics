@@ -1,3 +1,3 @@
 import Daily from '@daily-co/daily-js';
 
-export default Daily
+export default Daily;
