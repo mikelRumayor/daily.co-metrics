@@ -18,6 +18,7 @@
   "homepage": "https://github.com/mikelRumayor/daily.co#readme",
   "devDependencies": {
     "gitmoji-cli": "^3.2.3",
-    "husky": "^4.2.3"
+    "husky": "^4.2.3",
+    "prettier": "^1.19.1"
   }
 }
