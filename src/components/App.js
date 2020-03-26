@@ -1,7 +1,11 @@
 import React from 'react';
 
+import Theme from 'Components/Theme';
+
 const App = () => (
-  <h1>Daily.js</h1>
+  <Theme>
+    <h1>Daily.js</h1>
+  </Theme>
 )
 
 export default App

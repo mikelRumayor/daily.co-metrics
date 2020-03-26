@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { css } from '@styled-components';
+import { css } from '@styling';
 
 export default {
   '--font-large': css`

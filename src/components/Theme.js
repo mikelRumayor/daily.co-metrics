@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from '@prop-types';
-import { ThemeProvider } from 'styled-components';
+import PropTypes from 'prop-types';
+import { ThemeProvider } from '@styling';
 
 import configuration from 'Theme';
 
