@@ -17,8 +17,8 @@ const Router = ({ children }) => <BrowserRouter>{children}</BrowserRouter>;
 Router.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ])
+    PropTypes.node,
+  ]),
 };
 
 export {
