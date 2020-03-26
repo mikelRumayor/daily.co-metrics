@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack --config webpack.production.js",
     "lint": "eslint \"src/**/*.js\" --fix --max-warnings 0",
-    "format": "prettier --ignore-path .gitignore -l \"**/*.+(js|json|md|yml)\"",
+    "format": "prettier --ignore-path .gitignore -l \"**/*.+(js|json|md|yml)\" --write",
     "start": "webpack-dev-server --config webpack.development.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
