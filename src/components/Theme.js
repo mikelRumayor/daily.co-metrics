@@ -9,7 +9,10 @@ export const Theme = ({ children }) => (
 );
 
 Theme.propTypes = {
-  children: PropTypes.children,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ])
 };
 
 export default Theme;
