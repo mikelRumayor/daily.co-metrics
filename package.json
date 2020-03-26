@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mikelRumayor/daily.co/issues"
   },
-  "homepage": "https://github.com/mikelRumayor/daily.co#readme"
+  "homepage": "https://github.com/mikelRumayor/daily.co#readme",
+  "devDependencies": {
+    "husky": "^4.2.3"
+  }
 }
