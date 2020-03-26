@@ -11,8 +11,25 @@ module.exports = {
       },
     ],
   },
-  output: {},
-  optimization: {},
+  output: {
+    chunkFilename: '[chunkhash].js',
+    filename: '[hash].js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+    sourceMapFilename: '../../sourcemap/[file].map',
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          chunks: 'all',
+          name: 'vendor',
+          priority: -20,
+          test: /node_modules/,
+        },
+      },
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'daily.js',

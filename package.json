@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Metrics for Daily.js",
   "scripts": {
+    "build": "webpack --config webpack.production.js",
     "lint": "eslint \"src/**/*.js\" --fix --max-warnings 0",
     "format": "prettier --ignore-path .gitignore -l \"**/*.+(js|json|md|yml)\"",
     "start": "webpack-dev-server --config webpack.development.js",
