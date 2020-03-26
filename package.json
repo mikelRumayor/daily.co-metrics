@@ -4,6 +4,7 @@
   "description": "Metrics for Daily.js",
   "main": "index.js",
   "scripts": {
+    "format": "prettier --ignore-path .gitignore -l \"**/*.+(js|json|md|yml)\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
