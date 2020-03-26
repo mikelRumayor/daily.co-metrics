@@ -6,12 +6,14 @@ import Button from 'Components/Button';
 import Link from 'Components/Link';
 import { Switch, Route } from 'Components/Router';
 
+import Layout, { Main } from 'Components/Layout'
+
 import CreateRoom from 'Views/CreateRoom';
 
 const Actions = styled('aside')``;
 
 const Rooms = ({ className, match: { url } }) => (
-  <div className={className}>
+  <Layout className={className}>
     <Switch>
       <Route component={CreateRoom} path={`${url}/create`} />
       <Route path="/">
@@ -22,7 +24,7 @@ const Rooms = ({ className, match: { url } }) => (
         </Actions>
       </Route>
     </Switch>
-  </div>
+  </Layout>
 );
 
 Rooms.propTypes = {
@@ -33,9 +35,11 @@ Rooms.propTypes = {
 };
 
 export default styled(Rooms)`
-  padding: 3.2rem;
+  ${Main} {
+    padding: 3.2rem;
 
-  ${Actions} {
-    text-align: right;
+    ${Actions} {
+      text-align: right;
+    }
   }
 `;
