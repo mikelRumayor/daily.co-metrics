@@ -6,7 +6,7 @@ import Button from 'Components/Button';
 import Link from 'Components/Link';
 import { Switch, Route } from 'Components/Router';
 
-import Layout, { Main } from 'Components/Layout'
+import Layout, { Main } from 'Components/Layout';
 
 import CreateRoom from 'Views/CreateRoom';
 
