@@ -8,7 +8,7 @@ export default styled('button')`
   color: ${theme('--color-light')};
   min-width: 6rem;
   padding: 0.8rem 1.2rem;
-  text-decoration: none;
+  text-transform: capitalize;
 
   &:active {
     color: ${theme('--color-light')};
