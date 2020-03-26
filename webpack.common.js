@@ -41,6 +41,7 @@ module.exports = {
   resolve: {
     alias: {
       Components: path.resolve(SRC, 'components'),
+      Theme: path.resolve(SRC, 'theme')
     }
   }
 };
