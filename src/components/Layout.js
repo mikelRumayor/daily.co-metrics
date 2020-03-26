@@ -5,7 +5,7 @@ import styled from '@styling';
 import Header from 'Components/Header';
 import Sidebar from 'Components/Sidebar';
 
-const Main = styled('main')``;
+export const Main = styled('main')``;
 
 const Layout = ({ className, children }) => (
   <section className={className}>
