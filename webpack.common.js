@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -16,5 +17,10 @@ module.exports = {
   optimization: {
    
   },
-  plugins: []
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'daily.js',
+      template: path.resolve(__dirname, 'index.html'),
+    }),
+  ]
 };
