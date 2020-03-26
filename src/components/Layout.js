@@ -39,4 +39,9 @@ export default styled(Layout)`
     grid-column: 1 / span 3;
     height: calc(100vh - 6.4rem);
   }
+
+  ${Main} {
+    grid-row: 2;
+    grid-column: 4 / span 9;
+  }
 `;
