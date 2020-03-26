@@ -1,5 +1,6 @@
 {
   "hooks": {
+    "pre-push": "npm run format && npm run lint",
     "prepare-commit-msg": "[[ `cat .git/COMMIT_EDITMSG` =~ ^[0-9]+.[0-9]+.[0-9]+(-[0-9]+)?$ ]] || gitmoji --hook ${HUSKY_GIT_PARAMS} < /dev/tty"
   }
 }
