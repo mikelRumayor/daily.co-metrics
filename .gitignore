@@ -1,0 +1,5 @@
+# Node
+/node_modules/
+
+# OS (Should be on your config! ¬¬)
+.DS_Store
