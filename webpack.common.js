@@ -40,6 +40,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
+      '@styling': path.resolve(__dirname, 'lib', 'styled-components'),
       Components: path.resolve(SRC, 'components'),
       Theme: path.resolve(SRC, 'theme')
     }
