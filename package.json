@@ -4,6 +4,7 @@
   "description": "Metrics for Daily.js",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint \"src/**/*.js\" --fix --max-warnings 0",
     "format": "prettier --ignore-path .gitignore -l \"**/*.+(js|json|md|yml)\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,6 +26,9 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
     "gitmoji-cli": "^3.2.3",
     "husky": "^4.2.3",
     "prettier": "^1.19.1"
