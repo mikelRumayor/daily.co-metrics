@@ -11,8 +11,8 @@ export const Theme = ({ children }) => (
 Theme.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ])
+    PropTypes.node,
+  ]),
 };
 
 export default Theme;
