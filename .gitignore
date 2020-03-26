@@ -1,3 +1,7 @@
+# Build
+/dist
+/sourcemap
+
 # Node
 /node_modules/
 
