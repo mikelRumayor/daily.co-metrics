@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Layout from 'Components/Layout';
 import Router, { Redirect, Route } from 'Components/Router';
 import Theme from 'Components/Theme';
 
@@ -13,7 +12,7 @@ const App = () => (
       <Route exact path="/">
         <Redirect to="/rooms" />
       </Route>
-      
+       <Route component={Rooms} path="/rooms" />
       <Route component={Live} path="/live/:id" />
     </Theme>
   </Router>
