@@ -42,7 +42,8 @@ module.exports = {
     alias: {
       '@styling': path.resolve(__dirname, 'lib', 'styling'),
       Components: path.resolve(SRC, 'components'),
-      Theme: path.resolve(SRC, 'theme')
-    }
-  }
+      Theme: path.resolve(SRC, 'theme'),
+      Views: path.resolve(SRC, 'views'),
+    },
+  },
 };
