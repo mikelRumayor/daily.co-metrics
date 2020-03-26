@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
+const SRC = path.resolve(__dirname, 'src');
+
 module.exports = {
   module: {
     rules: [
@@ -36,4 +38,9 @@ module.exports = {
       template: path.resolve(__dirname, 'index.html'),
     }),
   ],
+  resolve: {
+    alias: {
+      Components: path.resolve(SRC, 'components'),
+    }
+  }
 };
