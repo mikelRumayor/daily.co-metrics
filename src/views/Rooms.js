@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import styled from '@styling';
 
 import Button from 'Components/Button';
@@ -28,9 +28,9 @@ const Rooms = ({ className, match: { url } }) => (
 Rooms.propTypes = {
   className: PropTypes.string,
   match: PropTypes.shape({
-    url: PropTypes.string
-  })
-}
+    url: PropTypes.string,
+  }),
+};
 
 export default styled(Rooms)`
   padding: 3.2rem;

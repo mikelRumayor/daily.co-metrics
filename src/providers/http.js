@@ -11,9 +11,9 @@ export async function http(url, method = 'get', data, options = {}) {
   try {
     response = await axios({
       [hasBody ? 'data' : 'params']: data,
+      baseURL: API,
       method,
       url,
-      baseURL: API,
       ...options,
     });
   } catch (error) {
