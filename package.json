@@ -2,10 +2,10 @@
   "name": "@daily.co/metrics",
   "version": "1.0.0",
   "description": "Metrics for Daily.js",
-  "main": "index.js",
   "scripts": {
     "lint": "eslint \"src/**/*.js\" --fix --max-warnings 0",
     "format": "prettier --ignore-path .gitignore -l \"**/*.+(js|json|md|yml)\"",
+    "start": "webpack-dev-server --config webpack.development.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -33,6 +33,7 @@
     "husky": "^4.2.3",
     "prettier": "^1.19.1",
     "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   }
 }
