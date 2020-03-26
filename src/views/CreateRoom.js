@@ -1,15 +1,40 @@
 import React from 'react';
 import styled from '@styling';
 
-import { Redirect } from 'Components/Router';
+import Button from 'Components/Button';
 import Form, { Input } from 'Components/Form';
 
-const Actions = styled('div')``;
+import rest from 'Providers/rest';
 
-const CreateRoom = ({ className, match: { url } }) => (
-  <Form className={className}>
-    <Input label="mame" name="name" />
-  </Form>
-);
+const Layout = styled('div')``
+const Title = styled('h2')``
 
-export default styled(CreateRoom)``;
+const CreateRoom = ({ className }) => {
+
+  const hadleSubmit = async values => {
+    const { id = 'd'} = await rest.create('/rooms', values)
+    console.log(id)
+  }
+
+  return (
+    <Form className={className} onSubmit={hadleSubmit}>
+      <Title>Create a room</Title>
+      <Layout>
+        <Input label="room name" name="name" />
+        <Input label="privacy" name="privacy" options={['public', 'private']} type='select'/>
+      </Layout>
+      <Button type="submit">create</Button>
+    </Form>
+  );
+}
+
+export default styled(CreateRoom)`
+
+  ${Layout} {
+    margin: 3.2rem 0;
+
+    ${Input} {
+      margin: 1.2rem 0;
+    }
+  }
+`;
