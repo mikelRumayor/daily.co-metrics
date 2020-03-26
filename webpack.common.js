@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
 
 const SRC = path.resolve(__dirname, 'src');
 
@@ -33,6 +34,11 @@ module.exports = {
     },
   },
   plugins: [
+    new webpack.EnvironmentPlugin({
+      ...(process.env.NODE_ENV === undefined && {
+        API_URI: 'https://localhost:3000/api/v1.0',
+      })
+    }),
     new HtmlWebpackPlugin({
       title: 'daily.js',
       template: path.resolve(__dirname, 'index.html'),
@@ -42,6 +48,7 @@ module.exports = {
     alias: {
       '@styling': path.resolve(__dirname, 'lib', 'styling'),
       Components: path.resolve(SRC, 'components'),
+      Providers: path.resolve(SRC, 'providers'),
       Theme: path.resolve(SRC, 'theme'),
       Views: path.resolve(SRC, 'views'),
     },
