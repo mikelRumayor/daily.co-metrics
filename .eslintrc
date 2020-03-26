@@ -4,5 +4,55 @@
     "jest": true
   },
   "extends": ["airbnb", "prettier", "prettier/react"],
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "plugins": ["react-hooks"],
+  "rules": {
+    "import/no-named-as-default": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin"]
+      }
+    ],
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react/destructuring-assignment": [
+      "warn",
+      "always",
+      {
+        "ignoreClassFields": true
+      }
+    ],
+    "react/forbid-prop-types": "off",
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "shorthandFirst": true,
+        "reservedFirst": true
+      }
+    ],
+    "react/no-did-update-set-state": "off",
+    "react/require-default-props": "off",
+    "react/state-in-constructor": ["error", "never"],
+    "react/static-property-placement": ["error", "static public field"],
+    "sort-keys": [
+      "error",
+      "asc",
+      { "caseSensitive": true, "natural": false, "minKeys": 2 }
+    ]
+  },
+  "settings": {
+    "import/resolver": "webpack",
+    "react": {
+      "version": "16.9"
+    }
+  }
 }
