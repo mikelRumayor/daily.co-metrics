@@ -4,6 +4,7 @@ import Layout from 'Components/Layout';
 import Router, { Redirect, Route } from 'Components/Router';
 import Theme from 'Components/Theme';
 
+import Live from 'Views/Live';
 import Rooms from 'Views/Rooms';
 
 const App = () => (
@@ -12,9 +13,8 @@ const App = () => (
       <Route exact path="/">
         <Redirect to="/rooms" />
       </Route>
-      <Layout>
-        <Route component={Rooms} path="/rooms" />
-      </Layout>
+      
+      <Route component={Live} path="/live/:id" />
     </Theme>
   </Router>
 );
