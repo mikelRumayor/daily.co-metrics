@@ -20,4 +20,3 @@ export default styled('button')`
     background-color: ${theme('--color-primary')};
   }
 `;
-
