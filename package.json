@@ -53,6 +53,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hot-loader": "^4.12.20",
+    "react-router-dom": "^5.1.2",
     "styled-components": "^5.0.1"
   }
 }
