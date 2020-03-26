@@ -45,8 +45,7 @@ const Text = ({ className, ...props }) => {
         onFocus={handleFocus}
       />
     </div>
-  )
-  
+  );
 };
 
 Text.propTypes = {

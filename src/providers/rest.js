@@ -9,7 +9,7 @@ const ERRORS = {
   TOKEN_EXPIRED: 'TOKEN_EXPIRED',
   UNAUTHORIZED: 'UNAUTHORIZED',
   UNKNOWN: 'UNKNOWN',
-}
+};
 
 export const OPERATION = {
   create: 'create',

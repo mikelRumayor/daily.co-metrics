@@ -1,4 +1,4 @@
-import rest from 'Providers/rest'
+import rest from 'Providers/rest';
 
 async function create(values) {
   const { id } = await rest.create('rooms', values);
@@ -6,7 +6,6 @@ async function create(values) {
   return id;
 }
 
-
 export default {
-  create
-}
+  create,
+};

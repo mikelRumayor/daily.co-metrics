@@ -28,8 +28,7 @@ const Select = ({ className, options = [], ...props }) => {
 
     event.stopPropagation();
 
-    const after =
-      options.find(option => option === needle) || options[0];
+    const after = options.find(option => option === needle) || options[0];
 
     onChange(after);
   };
@@ -40,7 +39,7 @@ const Select = ({ className, options = [], ...props }) => {
 
   useEffect(() => {
     if (value === undefined) {
-      const after = (options[0] || {});
+      const after = options[0] || {};
 
       onChange(after);
     }
@@ -57,20 +56,18 @@ const Select = ({ className, options = [], ...props }) => {
         onFocus={handleFocus}
       >
         {options.map(option => (
-          <option value={option}>
-            {option}
-          </option>
+          <option value={option}>{option}</option>
         ))}
       </Field>
     </div>
   );
-}
+};
 
 Select.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
-  options: PropTypes.arrayOf(PropTypes.string)
+  options: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default styled(Select)`
