@@ -9,18 +9,14 @@ module.exports = {
         test: /\.js$/,
         use: ['babel-loader'],
       },
-    ]
+    ],
   },
-  output: {
-    
-  },
-  optimization: {
-   
-  },
+  output: {},
+  optimization: {},
   plugins: [
     new HtmlWebpackPlugin({
       title: 'daily.js',
       template: path.resolve(__dirname, 'index.html'),
     }),
-  ]
+  ],
 };
