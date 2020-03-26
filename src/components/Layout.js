@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@styling';
 
@@ -9,21 +9,19 @@ const Main = styled('main')``;
 
 const Layout = ({ className, children }) => (
   <section className={className}>
-    <Header/>
-    <Sidebar/>
-    <Main>
-      {children}
-    </Main>
+    <Header />
+    <Sidebar />
+    <Main>{children}</Main>
   </section>
-)
+);
 
 Layout.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
-}
+  className: PropTypes.string,
+};
 
 export default styled(Layout)`
   display: grid;
