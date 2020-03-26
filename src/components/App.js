@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Layout from 'Components/Layout';
 import Router, { Redirect, Route } from 'Components/Router';
 import Theme from 'Components/Theme';
 
@@ -11,7 +12,9 @@ const App = () => (
       <Route exact path="/">
         <Redirect to="/rooms" />
       </Route>
-      <Route component={Rooms} path="/rooms" />
+      <Layout>
+        <Route component={Rooms} path="/rooms" />
+      </Layout>
     </Theme>
   </Router>
 );
