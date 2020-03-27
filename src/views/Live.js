@@ -1,9 +1,12 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@styling';
 
+import useDeepCompareEffect from 'Hooks/useDeepCompareEffect'
+
 import Video from 'Providers/video';
 import Services from 'Services/rooms';
+import useData from 'Hooks/useData';
 
 const Live = ({
   className,
@@ -11,16 +14,29 @@ const Live = ({
     params: { id },
   },
 }) => {
+  const [isReady, setReady]  = useState(false);
   const element = useRef();
   const frame = useRef();
+  const data = useData(Services.getById, { id });
 
-  useEffect(() => {
-    (async () => {
-      const { url } = await Services.getById(id);
+  useDeepCompareEffect(() => {
+    if(data) {
+      const { url } = data
       frame.current = Video.wrap(element.current, {});
       frame.current.join({ url });
-    })();
-  }, [id, element]);
+      setReady(true)
+    }
+   }, [data, element, frame, setReady]);
+
+   useEffect(() => {
+    let interval 
+    if(isReady) {
+      interval = setInterval(async () => {
+        const { stats: { latest } = {} } = await frame.current.getNetworkStats()
+      }, 1000)
+    }
+    return () => clearInterval(interval)
+  }, [element, frame, isReady]);
 
   return (
     <iframe
