@@ -2,11 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@styling';
 
-import useDeepCompareEffect from 'Hooks/useDeepCompareEffect'
+import useData from 'Hooks/useData';
+import useDeepCompareEffect from 'Hooks/useDeepCompareEffect';
 
 import Video from 'Providers/video';
-import Services from 'Services/rooms';
-import useData from 'Hooks/useData';
+
+import rooms from 'Services/rooms';
+import stats from 'Services/stats';
 
 const Live = ({
   className,
@@ -14,29 +16,32 @@ const Live = ({
     params: { id },
   },
 }) => {
-  const [isReady, setReady]  = useState(false);
+  const [isReady, setReady] = useState(false);
   const element = useRef();
   const frame = useRef();
-  const data = useData(Services.getById, { id });
+  const data = useData(rooms.getById, id);
 
   useDeepCompareEffect(() => {
-    if(data) {
-      const { url } = data
+    if (data) {
+      const { url } = data;
       frame.current = Video.wrap(element.current, {});
       frame.current.join({ url });
-      setReady(true)
+      setReady(true);
     }
-   }, [data, element, frame, setReady]);
+  }, [data, element, frame, setReady]);
 
-   useEffect(() => {
-    let interval 
-    if(isReady) {
+  useEffect(() => {
+    let interval;
+    if (isReady) {
       interval = setInterval(async () => {
-        const { stats: { latest } = {} } = await frame.current.getNetworkStats()
-      }, 1000)
+        const {
+          stats: { latest } = {},
+        } = await frame.current.getNetworkStats();
+        stats.sendStats(id, latest)
+      }, 1000);
     }
-    return () => clearInterval(interval)
-  }, [element, frame, isReady]);
+    return () => clearInterval(interval);
+  }, [element, frame, id, isReady]);
 
   return (
     <iframe
