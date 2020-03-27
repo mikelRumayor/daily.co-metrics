@@ -15,7 +15,7 @@ const CreateRoom = ({ className }) => {
   const [roomId, createRoom] = useState(false);
 
   const hadleSubmit = async values => {
-    const id = await Services.create(values);
+    const { id } = await Services.create(values);
     createRoom(id);
   };
 
