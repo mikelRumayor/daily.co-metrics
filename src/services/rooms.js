@@ -1,11 +1,14 @@
 import rest from 'Providers/rest';
 
-async function create(values) {
-  const { id } = await rest.create('rooms', values);
+function create(values) {
+ return rest.create('/rooms', values);
+}
 
-  return id;
+function getById({id}) {
+  return rest.read(`/rooms/:${id}`);
 }
 
 export default {
   create,
+  getById,
 };
