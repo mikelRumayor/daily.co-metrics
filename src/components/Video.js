@@ -2,13 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@styling';
 
-import Provider from 'Providers/video';
+import video from 'Providers/video';
 
 const Video = ({ className, onLoad = () => {}, url }) => {
   const element = useRef();
 
   useEffect(() => {
-    const provider = Provider.wrap(element.current, {});
+    const provider = video.wrap(element.current, {});
     provider.join({ url });
     onLoad(provider);
   }, [element, url, onLoad]);

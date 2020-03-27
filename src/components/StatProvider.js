@@ -1,5 +1,7 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
+
+import useDeepCompareEffect from 'Hooks/useDeepCompareEffect';
 
 import Video from 'Components/Video';
 
@@ -9,14 +11,14 @@ const StatProvider = ({ id, ...props }) => {
   const [provider, setProvider] = useState();
 
   const handleLoad = useCallback(
-    async p => {
-      setProvider(p);
+    video => {
+      setProvider(video);
     },
     [setProvider],
   );
 
-  useEffect(() => {
-    let interval 
+  useDeepCompareEffect(() => {
+    let interval;
     if (provider) {
       interval = setInterval(async () => {
         const { stats: { latest } = {} } = await provider.getNetworkStats();
