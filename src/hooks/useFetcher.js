@@ -1,7 +1,7 @@
 import { useCallback, useReducer, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import useDeepCompareEffect from 'Hooks/useDeepCompareEffect'
+import useDeepCompareEffect from 'Hooks/useDeepCompareEffect';
 
 const STATE = {
   IDLE: 1,
@@ -83,7 +83,6 @@ const useFetcher = (query, params) => {
         query.cancel();
       }
     };
-
   }, [id, params, query]);
 
   return { ...state, refetch };

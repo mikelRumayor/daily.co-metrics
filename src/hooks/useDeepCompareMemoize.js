@@ -11,4 +11,4 @@ function useDeepCompareMemoize(value) {
   return ref.current;
 }
 
-export default useDeepCompareMemoize
+export default useDeepCompareMemoize;
