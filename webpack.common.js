@@ -36,7 +36,7 @@ module.exports = {
   plugins: [
     new webpack.EnvironmentPlugin({
       ...(process.env.NODE_ENV === undefined && {
-        API_URI: 'https://localhost:3000/api/v1.0',
+        API_URI: 'http://localhost:3000/',
       }),
     }),
     new HtmlWebpackPlugin({
@@ -48,6 +48,7 @@ module.exports = {
     alias: {
       '@styling': path.resolve(__dirname, 'lib', 'styling'),
       Components: path.resolve(SRC, 'components'),
+      Hooks: path.resolve(SRC, 'hooks'),
       Services: path.resolve(SRC, 'services'),
       Providers: path.resolve(SRC, 'providers'),
       Theme: path.resolve(SRC, 'theme'),
