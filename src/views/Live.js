@@ -37,7 +37,7 @@ const Live = ({
         const {
           stats: { latest } = {},
         } = await frame.current.getNetworkStats();
-        stats.sendStats(id, latest)
+        stats.send(id, latest);
       }, 1000);
     }
     return () => clearInterval(interval);
