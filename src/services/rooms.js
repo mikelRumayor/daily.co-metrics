@@ -9,7 +9,7 @@ function get() {
 }
 
 function getById(id) {
-  return rest.read(`/rooms/:${id}`);
+  return rest.read(`/rooms/${id}`);
 }
 
 export default {
