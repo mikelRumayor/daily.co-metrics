@@ -24,7 +24,7 @@ const View = ({ className, match: { url } }) => (
             Create room
           </Button>
         </Actions>
-        <Rooms/>
+        <Rooms />
       </Route>
     </Switch>
   </Layout>
@@ -49,7 +49,7 @@ export default styled(View)`
       margin-top: 1.6rem;
       max-height: calc(100vh - 12.6rem);
       overflow: scroll;
-      
+
       ${Card} {
         margin-bottom: 2.4rem;
       }
