@@ -7,7 +7,6 @@ import Card from 'Components/Card';
 import Link from 'Components/Link';
 import { Switch, Route } from 'Components/Router';
 
-import Layout, { Main } from 'Components/Layout';
 import Rooms from 'Components/Rooms';
 
 import CreateRoom from 'Views/CreateRoom';
@@ -15,7 +14,7 @@ import CreateRoom from 'Views/CreateRoom';
 const Actions = styled('aside')``;
 
 const View = ({ className, match: { url } }) => (
-  <Layout className={className}>
+  <div className={className}>
     <Switch>
       <Route component={CreateRoom} path={`${url}/create`} />
       <Route path="/">
@@ -27,7 +26,7 @@ const View = ({ className, match: { url } }) => (
         <Rooms />
       </Route>
     </Switch>
-  </Layout>
+  </div>
 );
 
 View.propTypes = {
@@ -38,21 +37,19 @@ View.propTypes = {
 };
 
 export default styled(View)`
-  ${Main} {
-    padding: 3.2rem;
+  padding: 3.2rem;
 
-    ${Actions} {
-      text-align: right;
-    }
+  ${Actions} {
+    text-align: right;
+  }
 
-    ${Rooms} {
-      margin-top: 1.6rem;
-      max-height: calc(100vh - 12.6rem);
-      overflow: scroll;
+  ${Rooms} {
+    margin-top: 1.6rem;
+    max-height: calc(100vh - 12.6rem);
+    overflow: scroll;
 
-      ${Card} {
-        margin-bottom: 2.4rem;
-      }
+    ${Card} {
+      margin-bottom: 2.4rem;
     }
   }
 `;
