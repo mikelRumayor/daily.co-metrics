@@ -1,24 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { theme } from '@styling';
 
 import Link from 'Components/Link';
 
-const Date = styled('span')``
-const Name = styled('span')``
-const Privacy = styled('span')``
+const Date = styled('span')``;
+const Name = styled('span')``;
+const Privacy = styled('span')``;
 
-const Card = ({ className, created_at, id, name, privacy, url }) => (
+const Card = ({ className, created_at: createdAt, id, name, privacy }) => (
   <div className={className}>
     <Name>{name}</Name>
-    <Date>{new window.Date(created_at).toDateString()}</Date>
+    <Date>{new window.Date(createdAt).toDateString()}</Date>
     <Privacy>{privacy}</Privacy>
     <Link to={`/rooms/${id}`}>go to stats</Link>
     <Link to={`/live/${id}`}>go to call</Link>
   </div>
-)
+);
+
+Card.propTypes = {
+  className: PropTypes.string,
+  created_at: PropTypes.number,
+  id: PropTypes.string,
+  name: PropTypes.string,
+  privacy: PropTypes.string,
+};
 
 export default styled(Card)`
-  box-shadow: 0 0.1rem 0.3rem 0 rgba(0,0,0,0.15);
+  box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.15);
   border-radius: 0.5rem;
   display: grid;
   padding: 1.6rem 3.2rem;
@@ -54,5 +63,4 @@ export default styled(Card)`
     grid-row: 3;
     text-transform: capitalize;
   }
-
 `;
