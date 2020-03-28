@@ -36,7 +36,7 @@ module.exports = {
   plugins: [
     new webpack.EnvironmentPlugin({
       ...(process.env.NODE_ENV === undefined && {
-        API_URI: 'http://localhost:3000/',
+        API_URI: 'http://localhost:3000/api/v1.0',
       }),
     }),
     new HtmlWebpackPlugin({
