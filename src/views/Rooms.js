@@ -3,16 +3,18 @@ import PropTypes from 'prop-types';
 import styled from '@styling';
 
 import Button from 'Components/Button';
+import Card from 'Components/Card';
 import Link from 'Components/Link';
 import { Switch, Route } from 'Components/Router';
 
 import Layout, { Main } from 'Components/Layout';
+import Rooms from 'Components/Rooms';
 
 import CreateRoom from 'Views/CreateRoom';
 
 const Actions = styled('aside')``;
 
-const Rooms = ({ className, match: { url } }) => (
+const View = ({ className, match: { url } }) => (
   <Layout className={className}>
     <Switch>
       <Route component={CreateRoom} path={`${url}/create`} />
@@ -22,24 +24,35 @@ const Rooms = ({ className, match: { url } }) => (
             Create room
           </Button>
         </Actions>
+        <Rooms/>
       </Route>
     </Switch>
   </Layout>
 );
 
-Rooms.propTypes = {
+View.propTypes = {
   className: PropTypes.string,
   match: PropTypes.shape({
     url: PropTypes.string,
   }),
 };
 
-export default styled(Rooms)`
+export default styled(View)`
   ${Main} {
     padding: 3.2rem;
 
     ${Actions} {
       text-align: right;
+    }
+
+    ${Rooms} {
+      margin-top: 1.6rem;
+      max-height: calc(100vh - 12.6rem);
+      overflow: scroll;
+      
+      ${Card} {
+        margin-bottom: 2.4rem;
+      }
     }
   }
 `;
