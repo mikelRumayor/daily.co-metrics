@@ -9,10 +9,7 @@ import useFetcher from 'Hooks/useFetcher';
 
 import service from 'Services/stats';
 
-const Room = ({
-  className,
-  id,
-}) => {
+const Room = ({ className, id }) => {
   const [{ data: stats, loading }] = useFetcher(service.get, id);
 
   if (loading) return <Loader />;
@@ -51,7 +48,7 @@ const Room = ({
 
 Room.propTypes = {
   className: PropTypes.string,
-  id: PropTypes.string
+  id: PropTypes.string,
 };
 
 export default styled(Room)`

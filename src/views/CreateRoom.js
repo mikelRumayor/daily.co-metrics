@@ -16,10 +16,13 @@ const CreateRoom = ({ className, onRefetch }) => {
   const [url, setUrl] = useState();
   const [hasRedirect, setRedirect] = useState(false);
 
-  const hadleSubmit = useCallback(generatedUrl => {
-    onRefetch()
-    setUrl(generatedUrl);
-  }, [onRefetch]);
+  const hadleSubmit = useCallback(
+    generatedUrl => {
+      onRefetch();
+      setUrl(generatedUrl);
+    },
+    [onRefetch],
+  );
 
   const handleRedirect = () => {
     setRedirect(true);
@@ -48,7 +51,7 @@ const CreateRoom = ({ className, onRefetch }) => {
 
 CreateRoom.propTypes = {
   className: PropTypes.string,
-  onRefetch: PropTypes.func
+  onRefetch: PropTypes.func,
 };
 
 export default styled(CreateRoom)`
