@@ -19,15 +19,13 @@ const View = ({ className, match: { url } }) => (
     <Switch>
       <Route component={CreateRoom} path={`${url}/create`} />
       <Route component={Room} path={`${url}/:id`} />
-      <Route path="/">
-        <Actions>
-          <Button as={Link} to={`${url}/create`}>
-            Create room
-          </Button>
-        </Actions>
-        <Rooms />
-      </Route>
-    </Switch>
+      </Switch>
+      <Actions>
+        <Button as={Link} to={`${url}/create`}>
+          Create room
+        </Button>
+      </Actions>
+      <Rooms />
   </div>
 );
 
