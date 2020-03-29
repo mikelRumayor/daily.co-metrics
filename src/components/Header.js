@@ -8,7 +8,7 @@ const Title = styled('h1')``;
 
 const Header = ({ className }) => (
   <header className={className}>
-    <Title to='/' as={Link}>
+    <Title as={Link} to='/'>
       Daily.js
     </Title>
   </header>

@@ -14,7 +14,7 @@ const Card = ({ className, created_at: createdAt, id, name, privacy }) => (
     <Date>{new window.Date(createdAt).toDateString()}</Date>
     <Privacy>{privacy}</Privacy>
     <Link to={`/rooms/${id}`}>go to stats</Link>
-    <Link to={`/live/${id}`} target="blank">go to call</Link>
+    <Link target="blank" to={`/live/${id}`}>go to call</Link>
   </div>
 );
 
