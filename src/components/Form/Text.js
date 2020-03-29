@@ -6,9 +6,12 @@ import { v4 as uuid } from 'uuid';
 
 const Label = styled('label')``;
 const Field = styled('input')``;
+const Error = styled('span')``;
+const Wrapper = styled('div')``;
 
 const Text = ({ className, ...props }) => {
   const {
+    error,
     id = uuid(),
     label,
     name,
@@ -36,14 +39,17 @@ const Text = ({ className, ...props }) => {
 
   return (
     <div className={className}>
-      <Label htmlFor={id}>{label}</Label>
-      <Field
-        {...rest}
-        name={name}
-        onBlur={handleBlur}
-        onChange={handleChange}
-        onFocus={handleFocus}
-      />
+      <Wrapper>
+        <Label htmlFor={id}>{label}</Label>
+        <Field
+          {...rest}
+          name={name}
+          onBlur={handleBlur}
+          onChange={handleChange}
+          onFocus={handleFocus}
+        />
+      </Wrapper>
+      {error && <Error>{error}</Error>}
     </div>
   );
 };
@@ -56,7 +62,11 @@ Text.propTypes = {
 
 export default styled(Text)`
   ${theme('--font-medium')}
-  display: flex;
+  height: 5.2rem;
+
+  ${Wrapper} {
+    display: flex;
+  }
 
   ${Label} {
     margin-right: 0.8rem;
@@ -66,5 +76,9 @@ export default styled(Text)`
   ${Field} {
     border-radius: 0.4rem;
     padding: 0.4rem 0.8rem;
+  }
+
+  ${Error} {
+    color: red;
   }
 `;
