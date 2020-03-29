@@ -3,7 +3,7 @@ import { css } from '@styling';
 
 export default {
   '--font-xlarge': css`
-    font-size: 4.0rem;
+    font-size: 4rem;
     line-height: 4.4rem;
   `,
   '--font-large': css`

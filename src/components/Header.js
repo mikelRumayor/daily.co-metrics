@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { theme } from '@styling';
 
-import Link from 'Components/Link'
+import Link from 'Components/Link';
 
 const Title = styled('h1')``;
 
 const Header = ({ className }) => (
   <header className={className}>
-    <Title as={Link} to='/'>
+    <Title as={Link} to="/">
       Daily.js
     </Title>
   </header>
@@ -30,6 +30,5 @@ export default styled(Header)`
   ${Title} {
     ${theme('--font-xlarge')};
     color: ${theme('--color-light')};
-
   }
 `;
