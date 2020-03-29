@@ -2,32 +2,43 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@styling';
 
+import useFetcher from 'Hooks/useFetcher';
+
 import Button from 'Components/Button';
 import Card from 'Components/Card';
 import Link from 'Components/Link';
 import { Switch, Route } from 'Components/Router';
 
-import Rooms from 'Components/Rooms';
+import List from 'Components/List';
 
 import CreateRoom from 'Views/CreateRoom';
 import Stats from 'Views/Stats';
 
+import services from 'Services/rooms';
+
 const Actions = styled('aside')``;
 
-const View = ({ className, match: { url } }) => (
-  <div className={className}>
-    <Switch>
-      <Route component={CreateRoom} path={`${url}/create`} />
-      <Route component={Stats} path={`${url}/:id`} />
-    </Switch>
-    <Actions>
-      <Button as={Link} to={`${url}/create`}>
-        Create room
-      </Button>
-    </Actions>
-    <Rooms />
-  </div>
-);
+const View = ({ className, match: { url } }) => {
+  const [{ data: rooms = [], loading }, refetch] = useFetcher(services.get);
+
+  return (
+    <div className={className}>
+      <Switch>
+        <Route
+          path={`${url}/create`}
+          render={props => <CreateRoom {...props} refetch={refetch} />}
+        />
+        <Route component={Stats} path={`${url}/:id`} />
+      </Switch>
+      <Actions>
+        <Button as={Link} to={`${url}/create`}>
+          Create room
+        </Button>
+      </Actions>
+      {loading ? 'loading' : <List data={rooms} template={Card} />}
+    </div>
+  );
+};
 
 View.propTypes = {
   className: PropTypes.string,
@@ -44,7 +55,7 @@ export default styled(View)`
     text-align: right;
   }
 
-  ${Rooms} {
+  ${List} {
     margin-top: 1.6rem;
     max-height: calc(100vh - 12.6rem);
     overflow: scroll;
