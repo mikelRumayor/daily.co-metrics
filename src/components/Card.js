@@ -13,7 +13,7 @@ const Card = ({ className, created_at: createdAt, id, name, privacy }) => (
   <div className={className}>
     <Name>{name}</Name>
     <Date>Created in: {new window.Date(createdAt).toDateString()}</Date>
-    <Privacy>{privacy}</Privacy>
+    <Privacy data-private={privacy === 'private'}>{privacy}</Privacy>
     <Link to={`/rooms/${id}`}>go to stats</Link>
     {privacy === 'public' ? (
       <Link target="blank" to={`/live/${id}`}>
@@ -29,7 +29,7 @@ const Card = ({ className, created_at: createdAt, id, name, privacy }) => (
 
 Card.propTypes = {
   className: PropTypes.string,
-  created_at: PropTypes.number,
+  created_at: PropTypes.string,
   id: PropTypes.string,
   name: PropTypes.string,
   privacy: PropTypes.string,
@@ -65,6 +65,10 @@ export default styled(Card)`
     max-width: 8rem;
     text-align: center;
     text-transform: capitalize;
+
+    &[data-private="true"] {
+      background: ${theme('--color-alert')};
+    }
   }
 
   ${Link} {
