@@ -57,6 +57,7 @@
     "react-dom": "^16.13.1",
     "react-hot-loader": "^4.12.20",
     "react-router-dom": "^5.1.2",
+    "recharts": "^1.8.5",
     "spooner": "^2.1.9",
     "styled-components": "^5.0.1",
     "uuid": "^7.0.2"
