@@ -5,7 +5,8 @@ import styled from '@styling';
 import Button from 'Components/Button';
 import Form, { Input } from 'Components/Form';
 
-import Services from 'Services/rooms';
+import rooms from 'Services/rooms';
+import meetings from 'Services/meetings';
 
 const Layout = styled('div')``;
 const Title = styled('h2')``;
@@ -26,8 +27,15 @@ const RoomForm = ({ className, onSubmit = () => {} }) => {
   );
 
   const hadleSubmit = async values => {
-    const { id } = await Services.create(values);
-    onSubmit(`${APP_URI}/live/${id}`);
+    const { id, privacy } = await rooms.create(values);
+
+    if(privacy === 'private') {
+      const token = await meetings.createToken(values);
+      onSubmit(`${APP_URI}/live/${id}?token=${token}`);
+    }else {
+      onSubmit(`${APP_URI}/live/${id}`);
+
+    }
   };
 
   return (
