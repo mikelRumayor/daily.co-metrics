@@ -26,7 +26,7 @@ const View = ({ className, match: { url } }) => {
       <Switch>
         <Route
           path={`${url}/create`}
-          render={props => <CreateRoom {...props} refetch={refetch} />}
+          render={props => <CreateRoom {...props} onRefetch={refetch} />}
         />
         <Route component={Stats} path={`${url}/:id`} />
       </Switch>
