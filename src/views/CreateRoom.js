@@ -17,7 +17,7 @@ const CreateRoom = ({ className }) => {
   const [hasRedirect, setRedirect] = useState(false);
 
   const hadleSubmit = generatedUrl => {
-    setUrl(generatedUrl)
+    setUrl(generatedUrl);
   };
 
   const handleRedirect = () => {
@@ -32,15 +32,15 @@ const CreateRoom = ({ className }) => {
   return (
     <div className={className}>
       {hasRedirect && <Redirect to="/rooms" />}
-      <Background onClick={handleRedirect}/>
-        {!url ? (
-          <Form onSubmit={hadleSubmit} />
-        ) : (
-          <Wrapper>
-            <Input ref={input} label="room url" value={url}/>
-            <Button onClick={handleCopy}>copy</Button>
-          </Wrapper>
-        )}
+      <Background onClick={handleRedirect} />
+      {!url ? (
+        <Form onSubmit={hadleSubmit} />
+      ) : (
+        <Wrapper>
+          <Input ref={input} label="room url" value={url} />
+          <Button onClick={handleCopy}>copy</Button>
+        </Wrapper>
+      )}
     </div>
   );
 };
@@ -58,7 +58,7 @@ export default styled(CreateRoom)`
   height: 100%;
 
   ${Background} {
-    background: rgba(0, 0, 0 ,0.3);
+    background: rgba(0, 0, 0, 0.3);
     position: fixed;
     left: 0;
     width: 100vw;
@@ -76,7 +76,7 @@ export default styled(CreateRoom)`
   }
 
   ${Form} {
-    height: 21rem;
+    height: 23rem;
     width: 35rem;
   }
 
