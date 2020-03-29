@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@styling';
 
@@ -10,17 +10,28 @@ import Services from 'Services/rooms';
 const Layout = styled('div')``;
 const Title = styled('h2')``;
 
-const { APP_URI } = process.env
+const { APP_URI } = process.env;
 
 const RoomForm = ({ className, onSubmit = () => {} }) => {
- 
+  const contraints = useMemo(
+    () => ({
+      name: {
+        format: {
+          message: 'Spaces are not allowed',
+          pattern: /^\S*$/,
+        },
+      },
+    }),
+    [],
+  );
+
   const hadleSubmit = async values => {
     const { id } = await Services.create(values);
     onSubmit(`${APP_URI}/live/${id}`);
   };
 
   return (
-    <Form className={className} onSubmit={hadleSubmit}>
+    <Form className={className} constraint={contraints} onSubmit={hadleSubmit}>
       <Title>Create a room</Title>
       <Layout>
         <Input label="room name" name="name" />
@@ -33,7 +44,7 @@ const RoomForm = ({ className, onSubmit = () => {} }) => {
       </Layout>
       <Button type="submit">create</Button>
     </Form>
-  )
+  );
 };
 
 RoomForm.propTypes = {
