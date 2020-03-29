@@ -10,6 +10,7 @@ import { Switch, Route } from 'Components/Router';
 import Rooms from 'Components/Rooms';
 
 import CreateRoom from 'Views/CreateRoom';
+import Room from 'Views/Room';
 
 const Actions = styled('aside')``;
 
@@ -17,6 +18,7 @@ const View = ({ className, match: { url } }) => (
   <div className={className}>
     <Switch>
       <Route component={CreateRoom} path={`${url}/create`} />
+      <Route component={Room} path={`${url}/:id`} />
       <Route path="/">
         <Actions>
           <Button as={Link} to={`${url}/create`}>
