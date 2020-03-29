@@ -15,7 +15,7 @@ const Select = ({ className, options = [], ...props }) => {
     onBlur = () => {},
     onChange = () => {},
     onFocus = () => {},
-    value = '',
+    value,
     ...rest
   } = useField(props);
 
