@@ -17,24 +17,27 @@ const Live = ({
   },
 }) => {
   const data = useData(rooms.getById, id);
-  const token = useAuthorized()
+  const token = useAuthorized();
 
   if (!data) return false;
   const { url, privacy } = data;
 
-  if (!token && privacy === 'private') return <Unauthorized />
+  if (!token && privacy === 'private') return <Unauthorized />;
 
-  return <StatProvider className={className} id={id} url={token ? url : `${url}?t=${token}`} />;
+  return (
+    <StatProvider
+      className={className}
+      id={id}
+      url={token ? url : `${url}?t=${token}`}
+    />
+  );
 };
 
 Live.propTypes = {
   className: PropTypes.string,
   match: PropTypes.shape({
     params: PropTypes.shape({
-      token: PropTypes.string,
-    }),
-    params: PropTypes.shape({
-      token: PropTypes.string,
+      id: PropTypes.string,
     }),
   }),
 };

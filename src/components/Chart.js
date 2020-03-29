@@ -20,7 +20,7 @@ const Chart = ({
   title,
   yAxis,
 }) => {
-  const { time, ...sample } = data[0];
+  const { time, ...sample } = data[0] || {};
   const series = Object.keys(sample);
 
   return (

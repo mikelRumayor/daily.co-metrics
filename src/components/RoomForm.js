@@ -29,12 +29,11 @@ const RoomForm = ({ className, onSubmit = () => {} }) => {
   const hadleSubmit = async values => {
     const { id, privacy } = await rooms.create(values);
 
-    if(privacy === 'private') {
+    if (privacy === 'private') {
       const token = await meetings.createToken(values);
       onSubmit(`${APP_URI}/live/${id}?token=${token}`);
-    }else {
+    } else {
       onSubmit(`${APP_URI}/live/${id}`);
-
     }
   };
 
