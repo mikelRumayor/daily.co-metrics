@@ -12,9 +12,16 @@ const formatTick = tick => moment(tick).format('MMM Do YY hh:mm:ss');
 
 const colors = ['red', 'green'];
 
-const Chart = ({ className, data, height = 300, width = 600, title, yAxis }) => {
-  const { time,...sample } = data[0]
-  const series = Object.keys(sample)
+const Chart = ({
+  className,
+  data,
+  height = 300,
+  width = 600,
+  title,
+  yAxis,
+}) => {
+  const { time, ...sample } = data[0];
+  const series = Object.keys(sample);
 
   return (
     <div className={className}>

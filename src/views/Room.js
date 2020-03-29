@@ -35,8 +35,16 @@ const Room = ({
 
   return (
     <div className={className}>
-      <Chart data={bitsPerSecond} title="Bits per second" yAxis="bits per second" />
-      <Chart data={lostPackets} title="Packets transmision" yAxis="packets lost" />
+      <Chart
+        data={bitsPerSecond}
+        title="Bits per second"
+        yAxis="bits per second"
+      />
+      <Chart
+        data={lostPackets}
+        title="Packets transmision"
+        yAxis="packets lost"
+      />
     </div>
   );
 };
