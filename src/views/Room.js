@@ -14,24 +14,22 @@ const Room = ({
   }}
 ) => {
   const stats = useData(services.get, id) || []
-
-  console.log(stats, services.get)
   
   return (
     <div className={className}>
-      <ResponsiveContainer width="99%" aspect={2}>
-        <LineChart width={600} height={300} data={stats}>
-          <Line type="monotone" dataKey="videoRecvBitsPerSecond" stroke="red" />
-          <Line type="monotone" dataKey="videoSendBitsPerSecond" stroke="green" />
+      <ResponsiveContainer aspect={2} width="99%">
+        <LineChart data={stats} height={300} width={600}>
+          <Line dataKey="videoRecvBitsPerSecond" stroke="red" type="monotone" />
+          <Line dataKey="videoSendBitsPerSecond" stroke="green" type="monotone" />
          <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="timestamp" />
           <YAxis />
         </LineChart>
       </ResponsiveContainer>
-      <ResponsiveContainer width="99%" aspect={2}>
-        <LineChart width={600} height={300} data={stats}>
-          <Line type="monotone" dataKey="videoRecvPacketLoss" stroke="red" />
-          <Line type="monotone" dataKey="videoSendPacketLoss" stroke="green" />
+      <ResponsiveContainer aspect={2} width="99%">
+        <LineChart data={stats} height={300} width={600}>
+          <Line dataKey="videoRecvPacketLoss" stroke="red" type="monotone" />
+          <Line dataKey="videoSendPacketLoss" stroke="green" type="monotone" />
           <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="timestamp" />
           <YAxis />
@@ -44,7 +42,9 @@ const Room = ({
 Room.propTypes = {
   className: PropTypes.string,
   match: PropTypes.shape({
-    url: PropTypes.string,
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
   }),
 };
 
