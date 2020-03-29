@@ -23,7 +23,7 @@ const StatProvider = ({ id, ...props }) => {
       interval = setInterval(async () => {
         const { stats: { latest } = {} } = await provider.getNetworkStats();
         services.send(id, latest);
-      }, 1000);
+      }, 15000);
     }
     return () => clearInterval(interval);
   }, [id, provider]);
