@@ -5,6 +5,7 @@ import styled from '@styling';
 import useAuthorized from 'Hooks/useAuthorized';
 import useData from 'Hooks/useData';
 
+import Loader from 'Components/Loader';
 import StatProvider from 'Components/StatProvider';
 import Unauthorized from 'Components/Unauthorized';
 
@@ -19,7 +20,7 @@ const Live = ({
   const data = useData(rooms.getById, id);
   const token = useAuthorized();
 
-  if (!data) return false;
+  if (!data) return <Loader />;
   const { url, privacy } = data;
 
   if (!token && privacy === 'private') return <Unauthorized />;
