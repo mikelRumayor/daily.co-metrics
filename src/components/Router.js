@@ -9,6 +9,7 @@ import {
   Switch,
   Redirect,
   Route,
+  useLocation,
   withRouter,
 } from 'react-router-dom';
 
@@ -29,6 +30,7 @@ export {
   Redirect,
   Route,
   Switch,
+  useLocation,
   withRouter,
 };
 
