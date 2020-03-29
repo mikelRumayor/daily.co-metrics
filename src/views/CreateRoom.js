@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled, { theme } from '@styling';
 
@@ -11,14 +11,15 @@ const Input = styled('input')``;
 const Background = styled('aside')``;
 const Wrapper = styled('div')``;
 
-const CreateRoom = ({ className }) => {
+const CreateRoom = ({ className, onRefetch }) => {
   const input = useRef();
   const [url, setUrl] = useState();
   const [hasRedirect, setRedirect] = useState(false);
 
-  const hadleSubmit = generatedUrl => {
+  const hadleSubmit = useCallback(generatedUrl => {
+    onRefetch()
     setUrl(generatedUrl);
-  };
+  }, [onRefetch]);
 
   const handleRedirect = () => {
     setRedirect(true);
@@ -47,6 +48,7 @@ const CreateRoom = ({ className }) => {
 
 CreateRoom.propTypes = {
   className: PropTypes.string,
+  onRefetch: PropTypes.func
 };
 
 export default styled(CreateRoom)`
