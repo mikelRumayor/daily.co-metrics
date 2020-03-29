@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { theme } from '@styling';
 
 import Link from 'Components/Link';
+import LinkWithToken from 'Components/LinkWithToken';
 
 const Date = styled('span')``;
 const Name = styled('span')``;
@@ -11,13 +12,18 @@ const Privacy = styled('span')``;
 const Card = ({ className, created_at: createdAt, id, name, privacy }) => (
   <div className={className}>
     <Name>{name}</Name>
-
     <Date>Created in: {new window.Date(createdAt).toDateString()}</Date>
     <Privacy>{privacy}</Privacy>
     <Link to={`/rooms/${id}`}>go to stats</Link>
-    <Link target="blank" to={`/live/${id}`}>
-      go to call
-    </Link>
+    {privacy === 'public' ? (
+      <Link target="blank" to={`/live/${id}`}>
+        go to call
+      </Link>
+    ) : (
+      <LinkWithToken fields={{ name }} target="blank" to={`/live/${id}`}>
+        go to call
+      </LinkWithToken>
+    )}
   </div>
 );
 
