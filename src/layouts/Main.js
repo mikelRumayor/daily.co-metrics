@@ -33,5 +33,7 @@ export default styled(Layout)`
   ${Main} {
     grid-row: 2;
     grid-column: 1 / span 12;
+    height: 100%;
+    overflow: scroll;
   }
 `;
