@@ -2,6 +2,10 @@
 import { css } from '@styling';
 
 export default {
+  '--font-xlarge': css`
+    font-size: 4.0rem;
+    line-height: 4.4rem;
+  `,
   '--font-large': css`
     font-size: 1.6rem;
     line-height: 2.6rem;
