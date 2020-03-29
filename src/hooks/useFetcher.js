@@ -85,7 +85,7 @@ const useFetcher = (query, params) => {
     };
   }, [id, params, query]);
 
-  return { ...state, refetch };
+  return [state, refetch];
 };
 
 export default useFetcher;
