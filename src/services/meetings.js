@@ -8,7 +8,6 @@ function validateToken(token) {
   return rest.read(`/meetings/${token}`);
 }
 
-
 export default {
   createToken,
   validateToken,
