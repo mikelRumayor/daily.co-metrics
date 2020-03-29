@@ -8,6 +8,10 @@ function get() {
   return rest.read(`/rooms`);
 }
 
+function getToken() {
+  return rest.read(`/rooms`);
+}
+
 function getById(id) {
   return rest.read(`/rooms/${id}`);
 }
@@ -16,4 +20,5 @@ export default {
   create,
   get,
   getById,
+  getToken,
 };
