@@ -1,7 +1,7 @@
 import useFetcher from './useFetcher';
 
 export function useData(...arg) {
-  const state = useFetcher(...arg);
+  const [state] = useFetcher(...arg);
 
   return state.data;
 }
