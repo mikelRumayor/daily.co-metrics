@@ -39,6 +39,7 @@ View.propTypes = {
 };
 
 export default styled(View)`
+  height: 100%;
   padding: 3.2rem;
 
   ${Actions} {
