@@ -7,12 +7,13 @@ import useFetcher from 'Hooks/useFetcher';
 import Button from 'Components/Button';
 import Card from 'Components/Card';
 import Link from 'Components/Link';
+import List from 'Components/List';
+import Loader from 'Components/Loader';
 import { Switch, Route } from 'Components/Router';
 
-import List from 'Components/List';
 
 import CreateRoom from 'Views/CreateRoom';
-import Stats from 'Views/Stats';
+import Room from 'Views/Room';
 
 import services from 'Services/rooms';
 
@@ -28,14 +29,14 @@ const View = ({ className, match: { url } }) => {
           path={`${url}/create`}
           render={props => <CreateRoom {...props} onRefetch={refetch} />}
         />
-        <Route component={Stats} path={`${url}/:id`} />
+        <Route component={Room} path={`${url}/:id`} />
       </Switch>
       <Actions>
         <Button as={Link} to={`${url}/create`}>
           Create room
         </Button>
       </Actions>
-      {loading ? 'loading' : <List data={rooms} template={Card} />}
+      {loading ? <Loader /> : <List data={rooms} template={Card} />}
     </div>
   );
 };
