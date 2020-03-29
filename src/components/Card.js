@@ -66,7 +66,7 @@ export default styled(Card)`
     text-align: center;
     text-transform: capitalize;
 
-    &[data-private="true"] {
+    &[data-private='true'] {
       background: ${theme('--color-alert')};
     }
   }

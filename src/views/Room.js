@@ -23,7 +23,7 @@ const Room = ({
   return (
     <div className={className}>
       <Card {...room} />
-      <Stats id={id}/>
+      <Stats id={id} />
     </div>
   );
 };
@@ -39,7 +39,7 @@ Room.propTypes = {
 
 export default styled(Room)`
   height: 100%;
-   
+
   ${Card} {
     margin-bottom: 6.4rem;
   }

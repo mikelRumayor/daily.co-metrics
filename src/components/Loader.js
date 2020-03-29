@@ -3,9 +3,13 @@ import styled from '@styling';
 
 const Loader = ({ className }) => (
   <aside className={className}>
-    <img src="http://help.presentations2go.eu/LTI/lib/Spinner.gif" />
+    <img src="http://help.presentations2go.eu/LTI/lib/Spinner.gif" alt="loader" />
   </aside>
-) 
+);
+
+Loader.propTypes = {
+  className: PropTypes.string
+}
 
 export default styled(Loader)`
   align-items: center;

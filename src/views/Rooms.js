@@ -11,7 +11,6 @@ import List from 'Components/List';
 import Loader from 'Components/Loader';
 import { Switch, Route } from 'Components/Router';
 
-
 import CreateRoom from 'Views/CreateRoom';
 import Room from 'Views/Room';
 
