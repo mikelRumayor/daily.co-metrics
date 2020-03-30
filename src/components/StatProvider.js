@@ -29,7 +29,6 @@ const StatProvider = ({ id, ...props }) => {
             participantId.current = participantsIds[participantsIds.length - 1];
           }
         })
-
         .on('network-connection', evt => {
           if (evt.session_id) {
             interval = setInterval(async () => {
@@ -37,7 +36,7 @@ const StatProvider = ({ id, ...props }) => {
                 stats: { latest } = {},
               } = await provider.getNetworkStats();
               services.send(id, participantId.current, latest);
-            }, 1000);
+            }, 15000);
           }
         })
         .on('participant-left', () => {
