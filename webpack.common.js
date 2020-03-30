@@ -50,7 +50,6 @@ module.exports = {
       '@styling': path.resolve(__dirname, 'lib', 'styling'),
       Components: path.resolve(SRC, 'components'),
       Hooks: path.resolve(SRC, 'hooks'),
-      Layouts: path.resolve(SRC, 'layouts'),
       Services: path.resolve(SRC, 'services'),
       Providers: path.resolve(SRC, 'providers'),
       Theme: path.resolve(SRC, 'theme'),
