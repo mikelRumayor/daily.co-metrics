@@ -27,10 +27,10 @@ const Participant = ({ className, bitsPerSecond, id, lostPackets }) => (
 
 
 Participant.propTypes = {
-  className: PropTypes.string,
   bitsPerSecond: PropTypes.arrayOf(PropTypes.object),
+  className: PropTypes.string,
+  id: PropTypes.string,
   lostPackets: PropTypes.arrayOf(PropTypes.object),
-  id: PropTypes.string
 };
 
 export default styled(Participant)`
