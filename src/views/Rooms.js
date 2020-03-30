@@ -8,11 +8,11 @@ import RoomList from 'Components/RoomList';
 import Room from 'Views/Room';
 import Header from 'Components/Header';
 
-const Main = styled('main')``
+const Main = styled('main')``;
 
 const Rooms = ({ className, match: { url } }) => (
   <section className={className}>
-    <Header/>
+    <Header />
     <Main>
       <Switch>
         <Route component={Room} path={`${url}/:id/stats`} />
@@ -26,8 +26,8 @@ Rooms.propTypes = {
   className: PropTypes.string,
   match: PropTypes.shape({
     url: PropTypes.string,
-  })
-}
+  }),
+};
 
 export default styled(Rooms)`
   display: grid;
