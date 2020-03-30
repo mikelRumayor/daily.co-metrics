@@ -2,66 +2,46 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@styling';
 
-import useFetcher from 'Hooks/useFetcher';
-
-import Button from 'Components/Button';
-import Card from 'Components/Card';
-import Link from 'Components/Link';
-import List from 'Components/List';
-import Loader from 'Components/Loader';
 import { Switch, Route } from 'Components/Router';
 
-import CreateRoom from 'Views/CreateRoom';
+import RoomList from 'Components/RoomList';
 import Room from 'Views/Room';
+import Header from 'Components/Header';
 
-import services from 'Services/rooms';
+const Main = styled('main')``
 
-const Actions = styled('aside')``;
-
-const View = ({ className, match: { url } }) => {
-  const [{ data: rooms = [], loading }, refetch] = useFetcher(services.get);
-
-  return (
-    <div className={className}>
+const Rooms = ({ className, match: { url } }) => (
+  <section className={className}>
+    <Header/>
+    <Main>
       <Switch>
-        <Route
-          path={`${url}/create`}
-          render={props => <CreateRoom {...props} onRefetch={refetch} />}
-        />
-        <Route component={Room} path={`${url}/:id`} />
+        <Route component={Room} path={`${url}/:id/stats`} />
+        <Route component={RoomList} path={url} />
       </Switch>
-      <Actions>
-        <Button as={Link} to={`${url}/create`}>
-          Create room
-        </Button>
-      </Actions>
-      {loading ? <Loader /> : <List data={rooms} template={Card} />}
-    </div>
-  );
-};
+    </Main>
+  </section>
+);
 
-View.propTypes = {
+Rooms.propTypes = {
   className: PropTypes.string,
   match: PropTypes.shape({
     url: PropTypes.string,
-  }),
-};
+  })
+}
 
-export default styled(View)`
-  height: 100%;
-  padding: 3.2rem;
+export default styled(Rooms)`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 
-  ${Actions} {
-    text-align: right;
+  ${Header} {
+    grid-row: 1;
+    grid-column: 1 / span 12;
   }
 
-  ${List} {
-    margin-top: 1.6rem;
-    max-height: calc(100vh - 12.6rem);
+  ${Main} {
+    grid-row: 2;
+    grid-column: 1 / span 12;
+    height: 100%;
     overflow: scroll;
-
-    ${Card} {
-      margin-bottom: 2.4rem;
-    }
   }
 `;

@@ -2,7 +2,6 @@ import React from 'react';
 
 import Router, { Redirect, Route } from 'Components/Router';
 import Theme from 'Components/Theme';
-import Layout from 'Layouts/Main';
 
 import Live from 'Views/Live';
 import Rooms from 'Views/Rooms';
@@ -14,12 +13,8 @@ const App = () => (
         <Redirect to="/rooms" />
       </Route>
       <Route
+        component={Rooms}
         path="/rooms"
-        render={props => (
-          <Layout>
-            <Rooms {...props} />
-          </Layout>
-        )}
       />
       <Route component={Live} path="/live/:id" />
     </Theme>
