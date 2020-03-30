@@ -11,12 +11,12 @@ import service from 'Services/stats';
 
 const Stats = ({ className, id }) => {
   const [{ data: participants, loading }] = useFetcher(service.get, id);
-  
+
   if (loading) return <Loader />;
 
   return (
     <div className={className}>
-      {Object.keys(participants).map((participantId) => {
+      {Object.keys(participants).map(participantId => {
         const bitsPerSecond = participants[participantId].map(
           ({ time, videoRecvBitsPerSecond, videoSendBitsPerSecond }) => ({
             time,
@@ -34,8 +34,13 @@ const Stats = ({ className, id }) => {
         );
 
         return (
-          <Participant key={participantId} bitsPerSecond={bitsPerSecond} id={participantId} lostPackets={lostPackets} />
-        )
+          <Participant
+            key={participantId}
+            bitsPerSecond={bitsPerSecond}
+            id={participantId}
+            lostPackets={lostPackets}
+          />
+        );
       })}
     </div>
   );

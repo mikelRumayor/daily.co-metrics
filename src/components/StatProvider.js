@@ -24,9 +24,9 @@ const StatProvider = ({ id, ...props }) => {
     if (provider) {
       provider
         .on('joined-meeting', ({ participants }) => {
-          if(!participantId.current) {
-            const participantsIds = Object.keys(participants)
-            participantId.current = participantsIds[participantsIds.length - 1]
+          if (!participantId.current) {
+            const participantsIds = Object.keys(participants);
+            participantId.current = participantsIds[participantsIds.length - 1];
           }
         })
 
