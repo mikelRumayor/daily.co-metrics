@@ -9,7 +9,14 @@ const Date = styled('span')``;
 const Name = styled('span')``;
 const Privacy = styled('span')``;
 
-const Card = ({ className, created_at: createdAt, id, name, noStats, privacy }) => (
+const Card = ({
+  className,
+  created_at: createdAt,
+  id,
+  name,
+  noStats,
+  privacy,
+}) => (
   <div className={className}>
     <Name>{name}</Name>
     <Date>Created in: {new window.Date(createdAt).toDateString()}</Date>

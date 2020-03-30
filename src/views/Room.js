@@ -39,7 +39,7 @@ Room.propTypes = {
 
 export default styled(Room)`
   height: 100%;
-  padding: 3.2rem; 
+  padding: 3.2rem;
 
   ${Card} {
     margin-bottom: 6.4rem;

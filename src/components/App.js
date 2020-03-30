@@ -12,10 +12,7 @@ const App = () => (
       <Route exact path="/">
         <Redirect to="/rooms" />
       </Route>
-      <Route
-        component={Rooms}
-        path="/rooms"
-      />
+      <Route component={Rooms} path="/rooms" />
       <Route component={Live} path="/live/:id" />
     </Theme>
   </Router>

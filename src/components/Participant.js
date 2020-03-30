@@ -16,11 +16,7 @@ const Participant = ({ className, bitsPerSecond, id, lostPackets }) => (
         title="Bits per second"
         yAxis="bits per second"
       />
-      <Chart
-        data={lostPackets}
-        title="Lost packets"
-        yAxis="packets lost"
-      />
+      <Chart data={lostPackets} title="Lost packets" yAxis="packets lost" />
     </Charts>
   </div>
 );
