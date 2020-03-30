@@ -14,7 +14,7 @@ const Card = ({ className, created_at: createdAt, id, name, privacy }) => (
     <Name>{name}</Name>
     <Date>Created in: {new window.Date(createdAt).toDateString()}</Date>
     <Privacy data-private={privacy === 'private'}>{privacy}</Privacy>
-    <Link to={`/rooms/${id}`}>go to stats</Link>
+    <Link to={`/rooms/${id}/stats`}>go to stats</Link>
     {privacy === 'public' ? (
       <Link target="blank" to={`/live/${id}`}>
         go to call
