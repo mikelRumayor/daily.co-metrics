@@ -44,17 +44,17 @@ RoomList.propTypes = {
 };
 
 export default styled(withRouter(RoomList))`
-  height: 100%;
   padding: 3.2rem;
 
   ${Actions} {
     text-align: right;
+    position: fixed;
+    right: 3.2rem;
+    top: 8.4rem;
   }
 
   ${List} {
     margin-top: 1.6rem;
-    max-height: calc(100vh - 12.6rem);
-    overflow: scroll;
 
     ${Card} {
       margin-bottom: 2.4rem;
