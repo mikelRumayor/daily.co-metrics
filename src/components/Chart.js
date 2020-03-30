@@ -4,7 +4,7 @@ import styled from '@styling';
 
 import moment from 'moment';
 
-import { Label, XAxis, YAxis, CartesianGrid, LineChart, Line } from 'recharts';
+import { Label, XAxis, YAxis, CartesianGrid, Legend, LineChart, Line } from 'recharts';
 
 const Title = styled('h2')``;
 
@@ -45,6 +45,7 @@ const Chart = ({
             value={yAxis}
           />
         </YAxis>
+        <Legend verticalAlign="bottom" height={36}/>
       </LineChart>
     </div>
   );
