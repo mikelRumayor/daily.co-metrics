@@ -19,19 +19,22 @@ const StatProvider = ({ id, ...props }) => {
 
   useDeepCompareEffect(() => {
     let interval;
-    
-    if (provider) {
-      provider.on('network-connection', (evt) => {
-        if(evt.session_id) {
-          interval = setInterval(async () => {
-            const { stats: { latest } = {} } = await provider.getNetworkStats();
-            services.send(id, latest);
-          }, 15000);
-        }
-      }).on('participant-left', (evt) => {
-        clearInterval(interval)
-      });
 
+    if (provider) {
+      provider
+        .on('network-connection', evt => {
+          if (evt.session_id) {
+            interval = setInterval(async () => {
+              const {
+                stats: { latest } = {},
+              } = await provider.getNetworkStats();
+              services.send(id, latest);
+            }, 15000);
+          }
+        })
+        .on('participant-left', () => {
+          clearInterval(interval);
+        });
     }
     return () => clearInterval(interval);
   }, [id, provider]);
