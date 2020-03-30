@@ -6,7 +6,7 @@ import moment from 'moment';
 
 import { Label, XAxis, YAxis, CartesianGrid, Legend, LineChart, Line } from 'recharts';
 
-const Title = styled('h2')``;
+const Title = styled('h3')``;
 
 const formatTick = tick => moment(tick).format('MMM Do YY hh:mm:ss');
 
@@ -45,7 +45,7 @@ const Chart = ({
             value={yAxis}
           />
         </YAxis>
-        <Legend verticalAlign="bottom" height={36}/>
+        <Legend height={36} verticalAlign="bottom"/>
       </LineChart>
     </div>
   );
@@ -62,7 +62,6 @@ Chart.propTypes = {
 
 export default styled(Chart)`
   align-items: center;
-  height: 100%;
   display: flex;
   flex-direction: column;
 
