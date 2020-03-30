@@ -25,7 +25,6 @@ const Participant = ({ className, bitsPerSecond, id, lostPackets }) => (
   </div>
 );
 
-
 Participant.propTypes = {
   bitsPerSecond: PropTypes.arrayOf(PropTypes.object),
   className: PropTypes.string,
@@ -34,7 +33,6 @@ Participant.propTypes = {
 };
 
 export default styled(Participant)`
-  
   ${Charts} {
     display: flex;
     flex-wrap: wrap;
