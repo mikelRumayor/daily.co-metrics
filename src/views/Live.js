@@ -43,4 +43,6 @@ Live.propTypes = {
   }),
 };
 
-export default styled(Live)``;
+export default styled(Live)`
+  height: 100vh;
+`;

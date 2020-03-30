@@ -36,12 +36,15 @@ export default styled(Rooms)`
   ${Header} {
     grid-row: 1;
     grid-column: 1 / span 12;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
   }
 
   ${Main} {
     grid-row: 2;
     grid-column: 1 / span 12;
-    height: 100%;
-    overflow: scroll;
+    margin-top: 5.6rem;
+    z-index: 1;
   }
 `;
