@@ -4,8 +4,8 @@ function get(id) {
   return rest.read(`/stats/${id}`);
 }
 
-function send(id, stats) {
-  return rest.create(`/stats/${id}`, stats);
+function send(id, participantId, stats) {
+  return rest.create(`/stats/${id}/${participantId}`, stats);
 }
 
 export default {
