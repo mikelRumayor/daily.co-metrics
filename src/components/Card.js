@@ -9,12 +9,12 @@ const Date = styled('span')``;
 const Name = styled('span')``;
 const Privacy = styled('span')``;
 
-const Card = ({ className, created_at: createdAt, id, name, privacy }) => (
+const Card = ({ className, created_at: createdAt, id, name, noStats, privacy }) => (
   <div className={className}>
     <Name>{name}</Name>
     <Date>Created in: {new window.Date(createdAt).toDateString()}</Date>
     <Privacy data-private={privacy === 'private'}>{privacy}</Privacy>
-    <Link to={`/rooms/${id}/stats`}>go to stats</Link>
+    {!noStats && <Link to={`/rooms/${id}/stats`}>go to stats</Link>}
     {privacy === 'public' ? (
       <Link target="blank" to={`/live/${id}`}>
         go to call
@@ -32,6 +32,7 @@ Card.propTypes = {
   created_at: PropTypes.string,
   id: PropTypes.string,
   name: PropTypes.string,
+  noStats: PropTypes.bool,
   privacy: PropTypes.string,
 };
 
