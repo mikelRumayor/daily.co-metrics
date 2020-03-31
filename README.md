@@ -4,6 +4,7 @@ Frontend of the project [Daily.co-server](https://github.com/mikelRumayor/daily.
 Dashboard that graphs Daily.co based video calls metrics.
 
 ## Features
+
 - Room creation
 - Public and private live calls creation
 - Live calls metrics ingestion
@@ -23,10 +24,12 @@ $ npm install
 ## Local development environment
 
 Set up environment variables:
+
 ```
   API_URL : //URL of the backend that provides se metrics service
   APP_URL : //URL of the domain where the project is going to be deployed
 ```
+
 By default the project is configured to inject `API_URL` and `APP_URL` environment variables making use of `webpack.EnvironmentPlugin`. See `webpack.common.js` to modify default values for development.
 
 ## Running

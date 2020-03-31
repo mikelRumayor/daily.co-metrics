@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 
 import useDeepCompareEffect from 'Hooks/useDeepCompareEffect';
 
-//State defition for useFetcher hooks
+// State defition for useFetcher hooks
 const STATE = {
   IDLE: 1,
   LOADING: 2,
@@ -57,7 +57,7 @@ const useFetcher = (query, params) => {
     let current = true;
     let promise = {};
 
-    //Anonymous function that resolves the promises and retrieves the data
+    // Anonymous function that resolves the promises and retrieves the data
     (async () => {
       try {
         promise = query(params);

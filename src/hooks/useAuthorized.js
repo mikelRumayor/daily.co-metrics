@@ -10,7 +10,7 @@ const useAuthorized = () => {
   const query = new URLSearchParams(useLocation().search);
   const token = query.get('token');
 
-  //useFetcher hook retrieves if the tokes is valid
+  // useFetcher hook retrieves if the tokes is valid
   const [{ data: { valid } = {}, loading }] = useFetcher(
     meetings.validateToken,
     token,
