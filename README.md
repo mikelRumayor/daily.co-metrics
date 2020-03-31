@@ -1,6 +1,7 @@
 # Daily.co/metrics
 
-Frontend of the project [Daily.co-server](https://github.com/mikelRumayor/daily.co-server)
+Frontend of the project [Daily.co-server](https://github.com/mikelRumayor/daily.co-server).
+
 Dashboard that graphs Daily.co based video calls metrics.
 
 ## Features
