@@ -29,6 +29,8 @@ export function method(operation) {
   return TO_HTTP_METHOD[operation] || operation;
 }
 
+//Provider that wraps HTTP to provide rest functionality such as error management.
+//In case that this provider is changed in the future the source code should not be affected.
 export async function rest(resource, operation, content, options = {}) {
   const { data, status } = await http(
     resource,

@@ -8,8 +8,11 @@ import Participant from 'Components/Participant';
 import useFetcher from 'Hooks/useFetcher';
 
 import service from 'Services/stats';
-
+/*
+  Stats component renders bitPerSecond and LostPackets charts per call participant.
+*/
 const Stats = ({ className, id }) => {
+  // useFetcher hook retrieves the stats of each participant, and the loading status of the service provided to be resolved asyncronouly
   const [{ data: participants, loading }] = useFetcher(service.get, id);
 
   if (loading) return <Loader />;

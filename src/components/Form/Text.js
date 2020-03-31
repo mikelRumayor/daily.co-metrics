@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+/* Sponner is a Form state management dependency that allows using the react.context */
 import { useField } from 'spooner';
 import styled, { theme } from '@styling';
 import { v4 as uuid } from 'uuid';
@@ -10,6 +11,12 @@ const Error = styled('span')``;
 const Wrapper = styled('div')``;
 
 const Text = ({ className, ...props }) => {
+  /*
+    useField hooks returns the context of the form that the input belongs to. 
+    The only required parameter to make it work is to provider an objects such as { name: 'fieldName'}
+    The onChange value provided by the useField hooks is who modifies the form context with { name: 'fieldName'}.
+    Sponner uses validate.js for fields validation. Errors regarding to { name: 'fieldName'} are also provided in the context. 
+  */
   const {
     error,
     id = uuid(),
