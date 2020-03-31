@@ -1,3 +1,7 @@
+/*
+  The purpose of this file is to wrap react-router to a sigle dependency file .
+  In case that the routing provider is changed in the future the source code should not be affected.
+*/
 import React from 'react';
 import PropTypes from 'prop-types';
 import {

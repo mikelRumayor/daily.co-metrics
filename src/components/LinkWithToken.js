@@ -8,7 +8,11 @@ import Link from 'Components/Link';
 
 import meetings from 'Services/meetings';
 
+/*
+  LinkWithToken component is used for private rooms with the purpose of generating valid links
+*/
 const LinkWithToken = ({ className, children, fields, to, ...props }) => {
+  // useData hook retrieves the meeting token from the service provided to be resolved asyncronouly
   const token = useData(meetings.createToken, fields);
   return (
     <Link {...props} className={className} to={`${to}?token=${token}`}>

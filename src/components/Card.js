@@ -9,6 +9,10 @@ const Date = styled('span')``;
 const Name = styled('span')``;
 const Privacy = styled('span')``;
 
+/* 
+  Card Component show rooms metadata such as name, creation date annd privacy.
+  It also shows the links to go to call or see call metrics.
+*/
 const Card = ({
   className,
   created_at: createdAt,
@@ -19,7 +23,7 @@ const Card = ({
 }) => (
   <div className={className}>
     <Name>{name}</Name>
-    <Date>Created in: {new window.Date(createdAt).toDateString()}</Date>
+    <Date>Created at: {new window.Date(createdAt).toDateString()}</Date>
     <Privacy data-private={privacy === 'private'}>{privacy}</Privacy>
     {!noStats && <Link to={`/rooms/${id}/stats`}>go to stats</Link>}
     {privacy === 'public' ? (

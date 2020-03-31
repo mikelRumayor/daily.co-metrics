@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+/* Sponner is a Form state management dependency that allows using the react.context */
 import { useField } from 'spooner';
 import styled, { theme } from '@styling';
 import { v4 as uuid } from 'uuid';
@@ -8,6 +9,10 @@ const Label = styled('label')``;
 const Field = styled('select')``;
 
 const Select = ({ className, options = [], ...props }) => {
+  /* useField hooks returns the context of the form that the input belongs to. 
+     The only required parameter to make it work is to provider an objects such as { name: 'fieldName'}
+     The onChange value provided by the useField hooks is who modifies the form context with the provided name parameter
+  */
   const {
     id = uuid(),
     label,
@@ -37,9 +42,11 @@ const Select = ({ className, options = [], ...props }) => {
     onFocus();
   };
 
+  // This useEffect forces the Select to have a default value in case that it is not provided.
+  // If no value is provider the first value of the options is provided
   useEffect(() => {
     if (value === undefined) {
-      const after = options[0] || {};
+      const after = options[0] || '';
 
       onChange(after);
     }

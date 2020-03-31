@@ -11,6 +11,11 @@ import Unauthorized from 'Components/Unauthorized';
 
 import rooms from 'Services/rooms';
 
+/*
+ View component that wraps Steroided Video call component with token based authentication.
+ If the room is private the provided token needs to be authorized. If that is the case
+ the Video with the real time stats provider is mounted.
+*/
 const Live = ({
   className,
   match: {

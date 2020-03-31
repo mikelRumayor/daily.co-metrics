@@ -2,6 +2,8 @@ import axios from 'axios';
 
 const API = process.env.API_URI;
 
+// Provider that wraps axios HTTP client instance.
+// In case that the client is changed in the future the source code should not be affected.
 export async function http(url, method = 'get', data, options = {}) {
   const hasBody = ['delete', 'patch', 'post', 'put'].includes(
     method.toLowerCase(),
