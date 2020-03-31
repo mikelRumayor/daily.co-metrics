@@ -1,6 +1,6 @@
 {
   "name": "@daily.co/metrics",
-  "version": "2.2.0",
+  "version": "2.1.1",
   "description": "Metrics for Daily.js",
   "scripts": {
     "build": "webpack --config webpack.production.js",

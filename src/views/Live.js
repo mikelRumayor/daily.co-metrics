@@ -34,7 +34,7 @@ const Live = ({
     <StatProvider
       className={className}
       id={id}
-      url={token ? url : `${url}?t=${token}`}
+      url={token ? `${url}?t=${token}` : url}
     />
   );
 };
