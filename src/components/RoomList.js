@@ -17,7 +17,11 @@ import services from 'Services/rooms';
 
 const Actions = styled('aside')``;
 
+/*
+  RoomList component is used to retieve the list of rooms created.
+*/
 const RoomList = ({ className, match: { url } }) => {
+  // useFetcher hook retrieves the list of rooms and the loading status of the service provided to be resolved asyncronouly
   const [{ data: rooms = [], loading }, refetch] = useFetcher(services.get);
 
   return (

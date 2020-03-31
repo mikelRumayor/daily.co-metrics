@@ -4,6 +4,9 @@ import styled from '@styling';
 
 import moment from 'moment';
 
+/*
+  Rechart is D3.js wrapper that leverages react's virtual DOM as render method.
+*/
 import {
   Label,
   XAxis,

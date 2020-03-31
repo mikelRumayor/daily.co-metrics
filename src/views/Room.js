@@ -10,6 +10,9 @@ import useFetcher from 'Hooks/useFetcher';
 
 import rooms from 'Services/rooms';
 
+/*
+ View component that shows selected room's metadata and statistics
+*/
 const Room = ({
   className,
   match: {

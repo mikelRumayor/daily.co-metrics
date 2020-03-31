@@ -11,6 +11,9 @@ const Input = styled('input')``;
 const Background = styled('aside')``;
 const Wrapper = styled('div')``;
 
+/*
+ View component that provides room creation and video calls generation
+*/
 const CreateRoom = ({ className, onRefetch }) => {
   const input = useRef();
   const [url, setUrl] = useState();

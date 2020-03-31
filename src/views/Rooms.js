@@ -10,6 +10,9 @@ import Header from 'Components/Header';
 
 const Main = styled('main')``;
 
+/*
+ View component that wrapps room stats and rooms list.
+*/
 const Rooms = ({ className, match: { url } }) => (
   <section className={className}>
     <Header />

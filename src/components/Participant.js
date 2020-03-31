@@ -7,6 +7,18 @@ import Chart from 'Components/Chart';
 const Charts = styled('div')``;
 const Title = styled('h3')``;
 
+/*
+  Participant component shows the charts of the metrics related to each participant.
+  The measures vairables are:
+
+    Bits per second 
+    - videoRecvBitsPerSecond
+    - videoSendBitsPerSecond
+    
+    Packets lost
+    - videoRecvPacketLoss
+    - videoSendPacketLoss 
+*/
 const Participant = ({ className, bitsPerSecond, id, lostPackets }) => (
   <div className={className}>
     <Title>Paticipant id: {id}</Title>
